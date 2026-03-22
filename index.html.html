@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PMTP Niche Page Manager Program — Agent Guidelines</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0d1f3c;
+    --navy-mid: #162b50;
+    --teal: #1a6b72;
+    --teal-light: #22898f;
+    --gold: #c9a84c;
+    --gold-light: #e0c47a;
+    --cream: #f8f4ee;
+    --cream-dark: #ede8df;
+    --white: #ffffff;
+    --text-dark: #0d1f3c;
+    --text-mid: #3d5068;
+    --text-light: #6b7d93;
+    --border: rgba(13,31,60,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 15px;
+  }
+
+  /* ── HEADER ── */
+  .site-header {
+    background: var(--navy);
+    padding: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--gold);
+  }
+
+  .header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--white);
+    font-size: 1.15rem;
+    letter-spacing: 0.04em;
+    font-weight: 400;
+  }
+
+  .logo-text span {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .header-badge {
+    background: var(--gold);
+    color: var(--navy);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    border-radius: 2px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    padding: 72px 32px 64px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 60% 80% at 20% 50%, rgba(26,107,114,0.18) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 60% at 80% 40%, rgba(201,168,76,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    color: var(--white);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  .hero h1 em {
+    color: var(--gold-light);
+    font-style: italic;
+  }
+
+  .hero-sub {
+    color: rgba(255,255,255,0.65);
+    font-size: 0.95rem;
+    max-width: 520px;
+    margin: 0 auto 32px;
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 1px;
+    background: var(--gold);
+    margin: 0 auto;
+    opacity: 0.6;
+  }
+
+  /* ── INTRO BAND ── */
+  .intro-band {
+    background: var(--teal);
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  .intro-band p {
+    color: var(--white);
+    font-size: 0.95rem;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  .intro-band strong {
+    font-weight: 600;
+    color: var(--gold-light);
+  }
+
+  /* ── MAIN CONTENT ── */
+  .main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 56px 32px 80px;
+  }
+
+  /* ── SECTION CARD ── */
+  .section-card {
+    background: var(--white);
+    border-radius: 4px;
+    margin-bottom: 12px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .section-card:hover {
+    box-shadow: 0 4px 24px rgba(13,31,60,0.08);
+  }
+
+  .section-header {
+    padding: 22px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    user-select: none;
+    gap: 16px;
+    transition: background 0.15s;
+  }
+
+  .section-header:hover {
+    background: rgba(13,31,60,0.02);
+  }
+
+  .section-header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 0.85rem;
+  }
+
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.05em;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--navy);
+    letter-spacing: 0.01em;
+  }
+
+  .chevron {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: var(--text-light);
+    transition: transform 0.25s ease;
+  }
+
+  .section-card.open .chevron {
+    transform: rotate(180deg);
+  }
+
+  .section-body {
+    display: none;
+    padding: 0 28px 28px;
+    border-top: 1px solid var(--border);
+    animation: fadeDown 0.2s ease;
+  }
+
+  .section-card.open .section-body {
+    display: block;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-body-inner {
+    padding-top: 22px;
+  }
+
+  /* ── TYPOGRAPHY INSIDE SECTIONS ── */
+  .section-body p {
+    color: var(--text-mid);
+    margin-bottom: 14px;
+    line-height: 1.75;
+    font-size: 0.93rem;
+  }
+
+  .section-body h4 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin: 22px 0 10px;
+  }
+
+  .section-body ul, .section-body ol {
+    padding-left: 0;
+    list-style: none;
+    margin-bottom: 14px;
+  }
+
+  .section-body ul li, .section-body ol li {
+    color: var(--text-mid);
+    font-size: 0.93rem;
+    padding: 5px 0 5px 20px;
+    position: relative;
+    line-height: 1.6;
+  }
+
+  .section-body ul li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.8rem;
+    top: 6px;
+  }
+
+  .section-body ol {
+    counter-reset: list-counter;
+  }
+
+  .section-body ol li {
+    counter-increment: list-counter;
+  }
+
+  .section-body ol li::before {
+    content: counter(list-counter);
+    position: absolute;
+    left: 0;
+    color: var(--teal);
+    font-weight: 600;
+    font-size: 0.8rem;
+    top: 6px;
+  }
+
+  /* ── CALLOUT BOX ── */
+  .callout {
+    background: var(--cream);
+    border-left: 3px solid var(--gold);
+    padding: 16px 20px;
+    border-radius: 0 4px 4px 0;
+    margin: 18px 0;
+  }
+
+  .callout p {
+    color: var(--text-dark) !important;
+    font-size: 0.92rem !important;
+    margin: 0 !important;
+    font-style: italic;
+  }
+
+  .callout strong {
+    font-style: normal;
+    color: var(--navy);
+  }
+
+  /* ── ALERT BOX ── */
+  .alert-box {
+    background: rgba(13,31,60,0.04);
+    border: 1px solid rgba(13,31,60,0.12);
+    border-radius: 4px;
+    padding: 16px 20px;
+    margin: 18px 0;
+  }
+
+  .alert-box p {
+    color: var(--navy) !important;
+    font-size: 0.92rem !important;
+    margin: 0 !important;
+    font-weight: 500;
+  }
+
+  /* ── TWO-COL GRID ── */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 16px 0;
+  }
+
+  .col-card {
+    background: var(--cream);
+    border-radius: 4px;
+    padding: 18px;
+    border: 1px solid var(--cream-dark);
+  }
+
+  .col-card h5 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--teal);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .col-card ul {
+    margin: 0 !important;
+  }
+
+  /* ── NICHE GRID ── */
+  .niche-section {
+    margin-bottom: 24px;
+  }
+
+  .niche-section h4 {
+    margin-bottom: 12px !important;
+  }
+
+  .niche-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .niche-tag {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    color: var(--text-dark);
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .niche-tag.active {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  .niche-tag.active .tag-agent {
+    color: var(--gold-light);
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-left: 6px;
+  }
+
+  .niche-tag.expansion {
+    background: rgba(26,107,114,0.07);
+    border-color: rgba(26,107,114,0.25);
+    color: var(--teal);
+  }
+
+  .niche-tag.future {
+    background: var(--cream-dark);
+    color: var(--text-light);
+    border-color: var(--cream-dark);
+    font-style: italic;
+  }
+
+  /* ── RIGHTS LIST ── */
+  .rights-list {
+    margin: 0 !important;
+  }
+
+  .rights-list li {
+    background: var(--cream);
+    border-radius: 3px;
+    padding: 10px 14px 10px 32px !important;
+    margin-bottom: 6px;
+    font-weight: 500 !important;
+    color: var(--text-dark) !important;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    display: inline-block;
+    background: var(--navy);
+    color: var(--gold);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+
+  /* ── NAV ── */
+  .toc-band {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 61px;
+    z-index: 90;
+  }
+
+  .toc-inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .toc-inner::-webkit-scrollbar { display: none; }
+
+  .toc-link {
+    padding: 14px 16px;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--text-light);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+    cursor: pointer;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .toc-link:hover {
+    color: var(--navy);
+    border-bottom-color: var(--gold);
+  }
+
+  /* ── EXPAND ALL ── */
+  .controls-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+  .btn-expand {
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 7px 16px;
+    font-size: 0.75rem;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-mid);
+    cursor: pointer;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+
+  .btn-expand:hover {
+    background: var(--navy);
+    color: var(--white);
+    border-color: var(--navy);
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--navy);
+    padding: 40px 32px;
+    text-align: center;
+    border-top: 2px solid var(--gold);
+  }
+
+  .footer p {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+  }
+
+  .footer .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--gold);
+    font-size: 1rem;
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .header-inner { padding: 16px 20px; }
+    .hero { padding: 52px 20px 48px; }
+    .main { padding: 36px 16px 60px; }
+    .section-header { padding: 18px 20px; }
+    .section-body { padding: 0 20px 24px; }
+    .two-col { grid-template-columns: 1fr; }
+    .toc-inner { padding: 0 16px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-text">Point Me to <span>Paradise</span> Travel</div>
+    <div class="header-badge">Internal — Agent Use</div>
+  </div>
+</header>
+
+<!-- TOC NAV -->
+<nav class="toc-band">
+  <div class="toc-inner">
+    <button class="toc-link" onclick="scrollToSection('overview')">Overview</button>
+    <button class="toc-link" onclick="scrollToSection('ownership')">Ownership</button>
+    <button class="toc-link" onclick="scrollToSection('eligibility')">Eligibility</button>
+    <button class="toc-link" onclick="scrollToSection('expectations')">Expectations</button>
+    <button class="toc-link" onclick="scrollToSection('leads')">Leads & Commission</button>
+    <button class="toc-link" onclick="scrollToSection('rights')">PMTP Rights</button>
+    <button class="toc-link" onclick="scrollToSection('niches')">Niche Directory</button>
+    <button class="toc-link" onclick="scrollToSection('apply')">How to Apply</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Point Me to Paradise Travel — Internal Program</div>
+  <h1>Niche Page <em>Manager</em> Program</h1>
+  <p class="hero-sub">A selective opportunity for approved PMTP agents to manage and grow company-owned niche brands focused on specific destinations and travel styles.</p>
+  <div class="hero-divider"></div>
+</section>
+
+<!-- INTRO BAND -->
+<div class="intro-band">
+  <p>This document outlines the structure, expectations, and policies of the PMTP Niche Page Manager Program. Read it in full before applying. <strong>Participation is a privilege, not an entitlement</strong> — and understanding these guidelines is the first step.</p>
+</div>
+
+<!-- MAIN -->
+<main class="main">
+
+  <div class="controls-bar">
+    <button class="btn-expand" onclick="toggleAll()">Expand All Sections</button>
+  </div>
+
+  <!-- SECTION 1: PROGRAM OVERVIEW -->
+  <div class="section-card" id="overview">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">01</span></div>
+        <div class="section-title">Program Overview</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">What This Is</div>
+        <p>Point Me to Paradise Travel is building a portfolio of PMTP-owned niche pages focused on specific destinations, travel styles, and specialty products. Approved agents may apply for the opportunity to manage one of these niche pages as the designated specialist under the PMTP brand.</p>
+        <p>The goal is to build true specialists under the PMTP umbrella — creating stronger consumer trust, improving conversion on niche leads, and giving agents the opportunity to grow a recognizable specialty within the company.</p>
+
+        <div class="callout">
+          <p><strong>The model in plain terms:</strong> The page belongs to PMTP. The niche manager operates it. The leads generated from that page go to the assigned agent under standard PMTP commission structure. Clients booked remain the agent's clients.</p>
+        </div>
+
+        <h4>Two Types of Niches</h4>
+        <div class="two-col">
+          <div class="col-card">
+            <h5>Destination Niches</h5>
+            <ul>
+              <li>Italy, Greece, Mexico, Caribbean, etc.</li>
+              <li>Focus: geography, routing, seasons, hotels, logistics, ideal client fit</li>
+              <li>You must be willing to invest into researching, knowing, and understanding the destination deeply</li>
+            </ul>
+          </div>
+          <div class="col-card">
+            <h5>Product / Style Niches</h5>
+            <ul>
+              <li>Cruising, Disney, Sandals, Honeymoons, etc.</li>
+              <li>Focus: brands, booking systems, experience design, selling points, qualification questions</li>
+              <li>You must be willing to invest into researching, knowing, and understanding the niched area of specialty scope deeply</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>These are different animals and the expectations for each manager will reflect which type of niche they hold.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: OWNERSHIP -->
+  <div class="section-card" id="ownership">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">02</span></div>
+        <div class="section-title">Ownership & Branding</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">Non-Negotiable</div>
+        <p>This is the most important section in this document. Please read it carefully.</p>
+
+        <div class="alert-box">
+          <p>All "Point Me to…" niche pages, branding, websites, social handles, lead funnels, and PMTP-generated assets are and remain the sole property of Point Me to Paradise Travel — period.</p>
+        </div>
+
+        <h4>What This Means for Agents</h4>
+        <ul>
+          <li>Agents do not own the PMTP niche name, page, logo, website, content library, or lead funnel</li>
+          <li>Agents do not acquire any rights to a niche page by managing it over time</li>
+          <li>If an agent leaves PMTP for any reason, the niche page and all associated assets remain with PMTP</li>
+          <li>Clients personally acquired and booked by the agent through a niche page remain the property of the agent upon exit from the PMTP partnership — the client relationship belongs to the agent, not the page</li>
+          <li>PMTP may have more than one contributing expert in a niche, even if one person is the lead manager</li>
+          <li>No separate brand ownership is granted or implied by niche assignment</li>
+        </ul>
+
+        <div class="callout">
+          <p>Being assigned a niche is a professional opportunity extended by PMTP. It is not a business partnership, ownership stake, or permanent assignment. It is a role — with real benefits — that requires meeting real standards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: ELIGIBILITY -->
+  <div class="section-card" id="eligibility">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">03</span></div>
+        <div class="section-title">Eligibility & Approval</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">How Assignment Works</div>
+
+        <div class="callout">
+          <p>Niche page assignments are not automatic and are not based solely on interest. They are awarded by application and approval based on <strong>expertise, availability, niche fit, professionalism, responsiveness, and PMTP's business needs.</strong></p>
+        </div>
+
+        <p>"I love Italy" is not a qualification. "I've booked 14 Italy itineraries, completed destination training, and can respond to leads within two hours" is.</p>
+
+        <h4>Evaluation Criteria</h4>
+        <p>Applications are reviewed on a combination of the following factors:</p>
+        <ul>
+          <li>Demonstrated knowledge of the niche destination or product</li>
+          <li>Real booking experience in that niche</li>
+          <li>Relevant training, certifications, or supplier relationships</li>
+          <li>Response time and day-to-day availability</li>
+          <li>Ability to contribute content (written, video, social) for the page</li>
+          <li>Willingness to accept and properly service PMTP-generated leads</li>
+          <li>Sales ability and demonstrated conversion track record</li>
+          <li>Professionalism, follow-through, and communication standards</li>
+          <li>Good standing with PMTP and the leadership team</li>
+          <li>Long-term commitment to building that specialty</li>
+        </ul>
+
+        <h4>Good Standing Requirement</h4>
+        <p>Agents must be in good standing with PMTP at the time of application and throughout their assignment. Niche management is an extended responsibility — it is not available to agents with unresolved performance issues.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: EXPECTATIONS -->
+  <div class="section-card" id="expectations">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">04</span></div>
+        <div class="section-title">Manager Expectations</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">What's Expected of You</div>
+        <p>Niche managers are expected to actively represent and help grow their specialty. Managing a niche page is not passive. It requires consistent investment of time, knowledge, and professional presence.</p>
+
+        <h4>Core Responsibilities</h4>
+        <ul>
+          <li>Respond quickly to niche leads — timeliness is non-negotiable</li>
+          <li>Stay actively current on that destination or product</li>
+          <li>Accept and properly service all PMTP-generated leads in that specialty — if you cannot manage a lead due to lack of time or capacity, you agree to refer that lead to another capable agent on the PMTP team rather than allow it to go unserviced</li>
+          <li>Represent PMTP professionally across all client touchpoints</li>
+          <li>Help create or supply niche-specific content to support the page</li>
+          <li>Maintain the page's relevance and accuracy over time</li>
+          <li>Communicate proactively with PMTP leadership if availability changes</li>
+        </ul>
+
+        <h4>Ongoing Accountability</h4>
+        <ul>
+          <li>Monthly content contribution (written tips, reels, social posts, or similar)</li>
+          <li>Participation in periodic page reviews with PMTP leadership</li>
+          <li>Adherence to lead follow-up standards set by PMTP</li>
+          <li>Minimum booking or engagement activity over time (reviewed periodically)</li>
+          <li>Willingness to work within a team model if niche volume grows</li>
+        </ul>
+
+        <div class="callout">
+          <p>If you reach a point where you can no longer meet these expectations, the right move is to communicate that to PMTP leadership early — not to let leads go cold and the page go stale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: LEADS -->
+  <div class="section-card" id="leads">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">05</span></div>
+        <div class="section-title">Leads, Commission & Client Ownership</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">How the Money Works</div>
+
+        <h4>Lead Assignment</h4>
+        <p>Leads generated directly through PMTP-owned niche pages are assigned to the niche manager unless otherwise determined by PMTP leadership.</p>
+        <p>All leads follow the standard PMTP commission structure. There is no separate or elevated commission rate for niche page leads.</p>
+
+        <h4>Client Ownership</h4>
+        <p>Clients booked by the agent through niche page leads remain the working agent's clients in accordance with PMTP IC agreement and house policies — provided the agent remains in good standing and continues meeting PMTP standards.</p>
+
+        <h4>Lead Reassignment</h4>
+        <div class="alert-box">
+          <p>If a niche manager is unavailable, unresponsive, or unable to properly service incoming leads, PMTP may temporarily or permanently reassign those leads or the page itself. Leads are an opportunity — not a guarantee.</p>
+        </div>
+
+        <ul>
+          <li>Slow or absent response to leads may result in temporary reassignment</li>
+          <li>Consistent failure to service leads may result in loss of niche assignment</li>
+          <li>Agents who leave PMTP forfeit all niche page lead rights upon departure — however, any clients already personally attained and booked through the page prior to departure may follow the agent, as those client relationships remain the agent's own</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PMTP RIGHTS -->
+  <div class="section-card" id="rights">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">06</span></div>
+        <div class="section-title">PMTP Reserved Rights</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">Company Authority</div>
+        <p>Point Me to Paradise Travel reserves the right to take any of the following actions at its discretion, with or without prior notice:</p>
+
+        <ul class="rights-list">
+          <li>Reassign a niche page to a different agent</li>
+          <li>Place a niche page on temporary or permanent pause</li>
+          <li>Require a performance improvement plan before continuation</li>
+          <li>Remove management rights if standards are not being met</li>
+          <li>Expand a niche into a team model if volume grows</li>
+          <li>Add contributing agents to any niche, even with an existing lead manager</li>
+          <li>Retire or merge a niche page based on business needs</li>
+          <li>Review and adjust program structure at any time</li>
+        </ul>
+
+        <div class="callout">
+          <p>These rights exist to protect the integrity of the program and the quality of the PMTP brand. A niche assignment is not a franchise. It is a role within a company-owned system.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: NICHE DIRECTORY -->
+  <div class="section-card" id="niches">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">07</span></div>
+        <div class="section-title">Niche Directory</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">Current & Planned Niches</div>
+
+        <div class="niche-section">
+          <h4>Active — Currently Assigned</h4>
+          <div class="niche-tags">
+            <div class="niche-tag active">Point Me to Hawaii <span class="tag-agent">Christina</span></div>
+            <div class="niche-tag active">Point Me to Sandals <span class="tag-agent">Andrea</span></div>
+            <div class="niche-tag active">Point Me to Costa Rica <span class="tag-agent">Maegan</span></div>
+            <div class="niche-tag active">Point Me to Europe <span class="tag-agent">Annette</span></div>
+          </div>
+        </div>
+
+        <div class="niche-section">
+          <h4>Target Expansion — Open for Application</h4>
+          <div class="niche-tags">
+            <div class="niche-tag expansion">Point Me to Disney</div>
+            <div class="niche-tag expansion">Point Me to Japan</div>
+            <div class="niche-tag expansion">Point Me to Thailand</div>
+            <div class="niche-tag expansion">Point Me to Caribbean</div>
+            <div class="niche-tag expansion">Point Me to Mexico</div>
+            <div class="niche-tag expansion">Point Me to Jamaica</div>
+            <div class="niche-tag expansion">Point Me to Dominican Republic</div>
+            <div class="niche-tag expansion">Point Me to Italy</div>
+            <div class="niche-tag expansion">Point Me to France</div>
+            <div class="niche-tag expansion">Point Me to Greece</div>
+            <div class="niche-tag expansion">Point Me to Spain</div>
+            <div class="niche-tag expansion">Point Me to Portugal</div>
+            <div class="niche-tag expansion">Point Me to Ireland</div>
+            <div class="niche-tag expansion">Point Me to Alaska</div>
+            <div class="niche-tag expansion">Point Me to Australia</div>
+            <div class="niche-tag expansion">Point Me to New Zealand</div>
+            <div class="niche-tag expansion">Point Me to Tahiti</div>
+            <div class="niche-tag expansion">Point Me to Fiji</div>
+            <div class="niche-tag expansion">Point Me to Cook Islands</div>
+            <div class="niche-tag expansion">Point Me to River Cruising</div>
+            <div class="niche-tag expansion">Point Me to Disney Cruising</div>
+            <div class="niche-tag expansion">Point Me to Universal</div>
+            <div class="niche-tag expansion">Point Me to Xcaret</div>
+            <div class="niche-tag expansion">Point Me to Scotland</div>
+            <div class="niche-tag expansion">Point Me to Iceland</div>
+            <div class="niche-tag expansion">Point Me to St. Lucia</div>
+            <div class="niche-tag expansion">Point Me to Weddings & Honeymoons</div>
+            <div class="niche-tag expansion">Point Me to Sporting Travel</div>
+          </div>
+        </div>
+
+        <div class="niche-section">
+          <h4>Future / Specialty — Not Yet Open</h4>
+          <div class="niche-tags">
+            <div class="niche-tag future">Point Me to Aulani</div>
+            <div class="niche-tag future">Point Me to Patagonia</div>
+            <div class="niche-tag future">Point Me to Galapagos</div>
+          </div>
+        </div>
+
+        <p style="font-size:0.82rem; color: var(--text-light); margin-top: 12px;">Niche availability is subject to change. Contact PMTP leadership before applying to confirm a niche is currently accepting applications.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: HOW TO APPLY -->
+  <div class="section-card" id="apply">
+    <div class="section-header" onclick="toggleSection(this)">
+      <div class="section-header-left">
+        <div class="section-icon"><span class="section-num">08</span></div>
+        <div class="section-title">How to Apply</div>
+      </div>
+      <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+    <div class="section-body">
+      <div class="section-body-inner">
+        <div class="section-label">The Process</div>
+        <p>If you've read this document in full and believe you're a strong candidate for a niche page, the next step is completing the PMTP Niche Page Manager Application.</p>
+
+        <h4>Before You Apply, Ask Yourself</h4>
+        <ul>
+          <li>Do I have real booking experience in this niche — not just interest?</li>
+          <li>Can I respond to leads within a few hours during normal business hours?</li>
+          <li>Am I willing to contribute content to this page consistently?</li>
+          <li>Am I prepared to represent PMTP professionally in this specialty?</li>
+          <li>Do I understand that this page belongs to PMTP — not to me?</li>
+          <li>If lead volume grows, am I open to working within a team?</li>
+        </ul>
+
+        <div class="callout">
+          <p>If you answered yes to all of the above — we want to hear from you. Submit your application and PMTP leadership will review and follow up.</p>
+        </div>
+
+        <div style="text-align:center; margin-top: 28px;">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAxZB-0ZzB9CYQH7BOYinOM8-7zqlb_FlUSDSZ0396Qr6GbA/viewform?usp=header" target="_blank" style="display:inline-block; background: var(--navy); color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 32px; border-radius: 3px; font-weight: 600; font-family: 'DM Sans', sans-serif; text-decoration: none;">
+            Apply Now — Submit Your Application
+          </a>
+          <p style="margin-top: 12px; font-size: 0.8rem; color: var(--text-light);">Questions? Reach out to PMTP leadership before submitting.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-brand">Point Me to Paradise Travel</div>
+  <p>Internal document — for approved and prospective PMTP agents only. Not for external distribution.</p>
+  <p style="margin-top: 6px;">Program guidelines are subject to revision at PMTP's discretion.</p>
+</footer>
+
+<script>
+  function toggleSection(header) {
+    const card = header.closest('.section-card');
+    card.classList.toggle('open');
+  }
+
+  let allOpen = false;
+  function toggleAll() {
+    const cards = document.querySelectorAll('.section-card');
+    allOpen = !allOpen;
+    cards.forEach(c => {
+      if (allOpen) c.classList.add('open');
+      else c.classList.remove('open');
+    });
+    document.querySelector('.btn-expand').textContent = allOpen ? 'Collapse All Sections' : 'Expand All Sections';
+  }
+
+  function scrollToSection(id) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.classList.add('open');
+    setTimeout(() => {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 50);
+  }
+
+  // Open first section by default
+  document.querySelector('.section-card').classList.add('open');
+</script>
+</body>
+</html>
