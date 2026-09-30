@@ -568,7 +568,31 @@
     .two-col { grid-template-columns: 1fr; }
     .toc-inner { padding: 0 16px; }
   }
-</style>
+
+    /* ── Application form ─────────────────────────────────────────────── */
+    .appform{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:30px 28px;margin-top:26px}
+    .appform h4{margin:26px 0 4px;font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600}
+    .appform h4:first-of-type{margin-top:0}
+    .appform .fhint{font-size:.82rem;color:var(--text-light);margin:0 0 14px}
+    .appform label{display:block;margin-bottom:14px;font-size:.88rem;color:var(--text-mid)}
+    .appform label>span{display:block;margin-bottom:5px;font-weight:500;color:var(--text-dark)}
+    .appform .req{color:#b3261e}
+    .appform input[type=text],.appform input[type=email],.appform input[type=tel],
+    .appform select,.appform textarea{width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid var(--border);
+      border-radius:3px;font-family:'DM Sans',sans-serif;font-size:.92rem;color:var(--text-dark);background:var(--cream)}
+    .appform textarea{resize:vertical;min-height:84px}
+    .appform input:focus,.appform select:focus,.appform textarea:focus{outline:none;border-color:var(--teal)}
+    .appform .ack{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px;font-size:.88rem;color:var(--text-mid)}
+    .appform .ack input{margin-top:3px;flex:0 0 auto}
+    .appform .submit{display:inline-block;background:var(--navy);color:var(--gold);font-size:.8rem;letter-spacing:.1em;
+      text-transform:uppercase;padding:14px 32px;border:none;border-radius:3px;font-weight:600;
+      font-family:'DM Sans',sans-serif;cursor:pointer}
+    .appform .submit:disabled{opacity:.55;cursor:default}
+    .appform .formnote{margin-top:12px;font-size:.8rem;color:var(--text-light)}
+    #appStatus{margin-top:14px;font-size:.9rem;display:none}
+    #appStatus.ok{display:block;color:#1a6b72}
+    #appStatus.bad{display:block;color:#b3261e}
+  </style>
 </head>
 <body>
 
@@ -626,11 +650,11 @@
     <div class="section-body">
       <div class="section-body-inner">
         <div class="section-label">What This Is</div>
-        <p>Point Me to Paradise Travel is building a portfolio of PMTP-owned niche pages focused on specific destinations, travel styles, and specialty products. Approved agents may apply for the opportunity to manage one of these niche pages as the designated specialist under the PMTP brand.</p>
+        <p>Point Me to Paradise Travel is building a portfolio of PMTP-owned niche pages focused on specific destinations, travel styles, and specialty products. Approved agents may apply for the opportunity to manage one of these niche pages as the designated specialist/specialists under the PMTP brand.</p>
         <p>The goal is to build true specialists under the PMTP umbrella — creating stronger consumer trust, improving conversion on niche leads, and giving agents the opportunity to grow a recognizable specialty within the company.</p>
 
         <div class="callout">
-          <p><strong>The model in plain terms:</strong> The page belongs to PMTP. The niche manager operates it. The leads generated from that page go to the assigned agent under standard PMTP commission structure. Clients booked remain the agent's clients.</p>
+          <p><strong>The model in plain terms:</strong> The page belongs to PMTP. The niche manager/managers operate it. The leads generated from that page go to the assigned agent/agents under standard PMTP commission structure. Clients booked remain the agent's clients.</p>
         </div>
 
         <h4>Two Types of Niches</h4>
@@ -788,7 +812,7 @@
         <div class="section-label">How the Money Works</div>
 
         <h4>Lead Assignment</h4>
-        <p>Leads generated directly through PMTP-owned niche pages are assigned to the niche manager unless otherwise determined by PMTP leadership.</p>
+        <p>Leads generated directly through PMTP-owned niche pages are assigned to the niche manager/managers unless otherwise determined by PMTP leadership.</p>
         <p>All leads follow the standard PMTP commission structure. There is no separate or elevated commission rate for niche page leads.</p>
 
         <h4>Client Ownership</h4>
@@ -796,7 +820,7 @@
 
         <h4>Lead Reassignment</h4>
         <div class="alert-box">
-          <p>If a niche manager is unavailable, unresponsive, or unable to properly service incoming leads, PMTP may temporarily or permanently reassign those leads or the page itself. Leads are an opportunity — not a guarantee.</p>
+          <p>If a niche manager/managers are unavailable, unresponsive, or unable to properly service incoming leads, PMTP may temporarily or permanently reassign those leads or the page itself. Leads are an opportunity — not a guarantee.</p>
         </div>
 
         <ul>
@@ -823,7 +847,7 @@
         <p>Point Me to Paradise Travel reserves the right to take any of the following actions at its discretion, with or without prior notice:</p>
 
         <ul class="rights-list">
-          <li>Reassign a niche page to a different agent</li>
+          <li>Reassign a niche page to a different agent/agents</li>
           <li>Place a niche page on temporary or permanent pause</li>
           <li>Require a performance improvement plan before continuation</li>
           <li>Remove management rights if standards are not being met</li>
@@ -858,14 +882,15 @@
           <div class="niche-tags">
             <div class="niche-tag active">Point Me to Hawaii <span class="tag-agent">Christina</span></div>
             <div class="niche-tag active">Point Me to Sandals <span class="tag-agent">Andrea</span></div>
-            <div class="niche-tag active">Point Me to Costa Rica <span class="tag-agent">Maegan</span></div>
-            <div class="niche-tag active">Point Me to Europe <span class="tag-agent">Annette</span></div>
+            <div class="niche-tag active">Point Me to Cruising <span class="tag-agent">Tabitha</span></div>
           </div>
         </div>
 
         <div class="niche-section">
           <h4>Target Expansion — Open for Application</h4>
           <div class="niche-tags">
+            <div class="niche-tag expansion">Point Me to Costa Rica</div>
+            <div class="niche-tag expansion">Point Me to Europe</div>
             <div class="niche-tag expansion">Point Me to Disney</div>
             <div class="niche-tag expansion">Point Me to Japan</div>
             <div class="niche-tag expansion">Point Me to Thailand</div>
@@ -882,9 +907,6 @@
             <div class="niche-tag expansion">Point Me to Alaska</div>
             <div class="niche-tag expansion">Point Me to Australia</div>
             <div class="niche-tag expansion">Point Me to New Zealand</div>
-            <div class="niche-tag expansion">Point Me to Tahiti</div>
-            <div class="niche-tag expansion">Point Me to Fiji</div>
-            <div class="niche-tag expansion">Point Me to Cook Islands</div>
             <div class="niche-tag expansion">Point Me to River Cruising</div>
             <div class="niche-tag expansion">Point Me to Disney Cruising</div>
             <div class="niche-tag expansion">Point Me to Universal</div>
@@ -894,6 +916,13 @@
             <div class="niche-tag expansion">Point Me to St. Lucia</div>
             <div class="niche-tag expansion">Point Me to Weddings & Honeymoons</div>
             <div class="niche-tag expansion">Point Me to Sporting Travel</div>
+            <div class="niche-tag expansion">Point Me to Bali</div>
+            <div class="niche-tag expansion">Point Me to Aruba</div>
+            <div class="niche-tag expansion">Point Me to Virgin Islands</div>
+            <div class="niche-tag expansion">Point Me to Asia</div>
+            <div class="niche-tag expansion">Point Me to ABC Islands</div>
+            <div class="niche-tag expansion">Point Me to Africa</div>
+            <div class="niche-tag expansion">Point Me to Maldives</div>
           </div>
         </div>
 
@@ -939,11 +968,122 @@
           <p>If you answered yes to all of the above — we want to hear from you. Submit your application and PMTP leadership will review and follow up.</p>
         </div>
 
-        <div style="text-align:center; margin-top: 28px;">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeAxZB-0ZzB9CYQH7BOYinOM8-7zqlb_FlUSDSZ0396Qr6GbA/viewform?usp=header" target="_blank" style="display:inline-block; background: var(--navy); color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 14px 32px; border-radius: 3px; font-weight: 600; font-family: 'DM Sans', sans-serif; text-decoration: none;">
-            Apply Now — Submit Your Application
-          </a>
-          <p style="margin-top: 12px; font-size: 0.8rem; color: var(--text-light);">Questions? Reach out to PMTP leadership before submitting.</p>
+        <div class="appform">
+          <!-- ══════════════════════════════════════════════════════════════
+               Web3Forms delivers to whatever address this key was registered
+               to. The subject and sender are rewritten on submit (see the
+               script at the foot of the page) so the email arrives reading
+               "Niche Application — Jane Smith · Point Me to Italy" rather
+               than the same generic line every time.
+               ══════════════════════════════════════════════════════════════ -->
+          <form id="nicheApp" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="c47c56c8-d0bd-4fca-9f7c-019b9fb5c681">
+            <input type="hidden" name="subject" value="Niche Page Manager Application">
+            <input type="hidden" name="form_name" value="Niche Page Manager Application">
+            <input type="hidden" name="from_name" value="PMTP Niche Application">
+            <!-- Honeypot: bots fill hidden fields, people do not. -->
+            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
+
+            <h4>About you</h4>
+            <p class="fhint">So leadership can reach you about this application.</p>
+            <label><span>Full name <span class="req">*</span></span><input type="text" name="Full name" required></label>
+            <label><span>Email address <span class="req">*</span></span><input type="email" name="Email" required></label>
+            <label><span>Best phone number <span class="req">*</span></span><input type="tel" name="Phone" required></label>
+
+            <h4>The niche you want</h4>
+            <p class="fhint">Only niches currently open for application are listed. Pick one.</p>
+            <label><span>Niche applying for <span class="req">*</span></span>
+              <select name="Niche applying for" required>
+                <option value="">— choose one —</option>
+              <option value="Point Me to Costa Rica">Point Me to Costa Rica</option>
+              <option value="Point Me to Europe">Point Me to Europe</option>
+              <option value="Point Me to Disney">Point Me to Disney</option>
+              <option value="Point Me to Japan">Point Me to Japan</option>
+              <option value="Point Me to Thailand">Point Me to Thailand</option>
+              <option value="Point Me to Caribbean">Point Me to Caribbean</option>
+              <option value="Point Me to Mexico">Point Me to Mexico</option>
+              <option value="Point Me to Jamaica">Point Me to Jamaica</option>
+              <option value="Point Me to Dominican Republic">Point Me to Dominican Republic</option>
+              <option value="Point Me to Italy">Point Me to Italy</option>
+              <option value="Point Me to France">Point Me to France</option>
+              <option value="Point Me to Greece">Point Me to Greece</option>
+              <option value="Point Me to Spain">Point Me to Spain</option>
+              <option value="Point Me to Portugal">Point Me to Portugal</option>
+              <option value="Point Me to Ireland">Point Me to Ireland</option>
+              <option value="Point Me to Alaska">Point Me to Alaska</option>
+              <option value="Point Me to Australia">Point Me to Australia</option>
+              <option value="Point Me to New Zealand">Point Me to New Zealand</option>
+              <option value="Point Me to River Cruising">Point Me to River Cruising</option>
+              <option value="Point Me to Disney Cruising">Point Me to Disney Cruising</option>
+              <option value="Point Me to Universal">Point Me to Universal</option>
+              <option value="Point Me to Xcaret">Point Me to Xcaret</option>
+              <option value="Point Me to Scotland">Point Me to Scotland</option>
+              <option value="Point Me to Iceland">Point Me to Iceland</option>
+              <option value="Point Me to St. Lucia">Point Me to St. Lucia</option>
+              <option value="Point Me to Weddings & Honeymoons">Point Me to Weddings & Honeymoons</option>
+              <option value="Point Me to Sporting Travel">Point Me to Sporting Travel</option>
+              <option value="Point Me to Bali">Point Me to Bali</option>
+              <option value="Point Me to Aruba">Point Me to Aruba</option>
+              <option value="Point Me to Virgin Islands">Point Me to Virgin Islands</option>
+              <option value="Point Me to Asia">Point Me to Asia</option>
+              <option value="Point Me to ABC Islands">Point Me to ABC Islands</option>
+              <option value="Point Me to Africa">Point Me to Africa</option>
+              <option value="Point Me to Maldives">Point Me to Maldives</option>
+                <option value="Something not listed">Something not listed (describe below)</option>
+              </select></label>
+            <label><span>If not listed, what niche — and why does PMTP need it?</span>
+              <textarea name="Niche not listed — what and why"></textarea></label>
+
+            <h4>Your experience in it</h4>
+            <p class="fhint">&ldquo;I love Italy&rdquo; is not a qualification. Numbers and specifics are.</p>
+            <label><span>How many trips have you actually BOOKED in this niche, and over what period? <span class="req">*</span></span>
+              <textarea name="Trips booked in this niche" required placeholder="e.g. 14 Italy itineraries since 2023, mostly 7-10 night custom FIT"></textarea></label>
+            <label><span>Training, certifications or destination specialist programmes you have completed</span>
+              <textarea name="Training and certifications"></textarea></label>
+            <label><span>Supplier or DMC relationships you hold in this niche</span>
+              <textarea name="Supplier relationships"></textarea></label>
+            <label><span>Have you travelled there yourself? When, and how well do you know it?</span>
+              <textarea name="Been there themselves"></textarea></label>
+
+            <h4>Availability and responsiveness</h4>
+            <p class="fhint">Timeliness is non-negotiable on niche leads.</p>
+            <label><span>Realistically, how fast can you respond to a new lead during business hours? <span class="req">*</span></span>
+              <select name="Response time" required>
+                <option value="">— choose one —</option>
+                <option>Within 1 hour</option><option>Within 2 hours</option>
+                <option>Within 4 hours</option><option>Same day</option>
+                <option>Next business day</option>
+              </select></label>
+            <label><span>What is your current workload, and what capacity do you have for more? <span class="req">*</span></span>
+              <textarea name="Current workload and capacity" required></textarea></label>
+            <label><span>Any planned time away, seasonal limits or other commitments we should know about?</span>
+              <textarea name="Time away or seasonal limits"></textarea></label>
+
+            <h4>Content and growth</h4>
+            <p class="fhint">Managing a page is not passive — monthly contribution is expected.</p>
+            <label><span>What content could you contribute, and how often? <span class="req">*</span></span>
+              <textarea name="Content contribution" required placeholder="Written tips, reels, social posts, photography, supplier interviews…"></textarea></label>
+            <label><span>How would you grow this niche over the next 12 months?</span>
+              <textarea name="How they would grow it"></textarea></label>
+            <label><span>Anything else leadership should know</span>
+              <textarea name="Anything else"></textarea></label>
+
+            <h4>Before you submit</h4>
+            <p class="fhint">All six must be ticked. They are the programme's own terms.</p>
+            <label class="ack"><input type="checkbox" name="I have real booking experience in this niche" value="Yes" required> I have real booking experience in this niche — not just interest.</label>
+            <label class="ack"><input type="checkbox" name="I can respond to leads within a few hours" value="Yes" required> I can respond to leads within a few hours during normal business hours.</label>
+            <label class="ack"><input type="checkbox" name="I will contribute content consistently" value="Yes" required> I am willing to contribute content to this page consistently.</label>
+            <label class="ack"><input type="checkbox" name="I will represent PMTP professionally" value="Yes" required> I am prepared to represent PMTP professionally in this specialty.</label>
+            <label class="ack"><input type="checkbox" name="I understand the page belongs to PMTP" value="Yes" required> I understand this page belongs to PMTP — not to me.</label>
+            <label class="ack"><input type="checkbox" name="I am open to working within a team" value="Yes" required> If lead volume grows, I am open to working within a team.</label>
+            <label class="ack"><input type="checkbox" name="I have read the guidelines in full" value="Yes" required> I have read these guidelines in full and understand assignment is not guaranteed.</label>
+
+            <div style="text-align:center;margin-top:26px">
+              <button type="submit" class="submit" id="appSubmit">Submit Application</button>
+              <p class="formnote">PMTP leadership will review and follow up. Questions? Reach out before submitting.</p>
+              <div id="appStatus"></div>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -986,6 +1126,50 @@
 
   // Open first section by default
   document.querySelector('.section-card').classList.add('open');
+</script>
+
+<script>
+/* Submits without leaving the page, so the agent sees a confirmation here
+   rather than being thrown to a Web3Forms success screen. The form still
+   works without JavaScript — it would just post normally. */
+(function(){
+  var f=document.getElementById('nicheApp'); if(!f) return;
+  var btn=document.getElementById('appSubmit'), out=document.getElementById('appStatus');
+  f.addEventListener('submit', function(e){
+    e.preventDefault();
+    /* THE SUBJECT LINE IS WRITTEN HERE, not left as a fixed hidden field.
+       Every application would otherwise arrive titled the same thing, and a
+       run of them in an inbox is then indistinguishable without opening each
+       one. Naming the applicant and the niche makes the list readable at a
+       glance and searchable later. */
+    var who=(f['Full name'].value||'').trim();
+    var niche=f['Niche applying for'].value||'';
+    if(niche==='Something not listed'){
+      var other=(f['Niche not listed — what and why'].value||'').trim();
+      niche = other ? other.split(/[.\n]/)[0].slice(0,50) : 'niche not listed';
+    }
+    f.subject.value = 'Niche Application — ' + (who||'name not given') + (niche?' · '+niche:'');
+    f.from_name.value = (who||'PMTP Niche Application') + ' — Niche Application';
+
+    btn.disabled=true; btn.textContent='Sending…'; out.className=''; out.textContent='';
+    fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(f)})
+      .then(function(r){ return r.json(); })
+      .then(function(d){
+        if(d && d.success){
+          f.style.display='none';
+          out.className='ok';
+          out.innerHTML='<strong>Application received.</strong><br>PMTP leadership will review it and follow up with you.';
+        } else {
+          throw new Error((d&&d.message)||'Submission failed');
+        }
+      })
+      .catch(function(err){
+        btn.disabled=false; btn.textContent='Submit Application';
+        out.className='bad';
+        out.textContent='That did not send — nothing was submitted. '+(err.message||'')+' Please try again, or email PMTP leadership directly.';
+      });
+  });
+})();
 </script>
 </body>
 </html>
